@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#game {
+  width: 500px;
+  height: 200px;
+  position: relative;
+  border: 1px solid black;
+}
+
+#character {
+  width: 30px;
+  height: 50px;
+  background-color: #722f37;
+  position: relative;
+  top: 150px;
+}
+
+.loser-message {
+  display: none;
+}
+
+.face,
+.deadface {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: -35%;
+  object-fit: contain;
+}
+
+.deadface {
+  display: none;
+}
+
+#block {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 120px;
+  left: 470px;
+}
+
+.bug {
+  width: 100%;
+  height: 100%;
+}
+
+.start,
+.again {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 15px;
+}
+
+.again {
+  display: none;
+}
+
+.animateCharacter {
+  animation: jump 0.5s linear;
+}
+
+.animateBlock {
+  animation: block 1s infinite linear;
+}
+
+@keyframes block {
+  0% {
+    left: 480px;
+  }
+  100% {
+    left: -40px;
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: 150px;
+  }
+  50% {
+    top: 100px;
+  }
+  100% {
+    top: 150px;
+  }
+}
