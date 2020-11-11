@@ -1,4 +1,5 @@
 const character = document.getElementById("character");
+const background = document.getElementById("background");
 const block = document.getElementById("block");
 const playButton = document.querySelector(".start");
 const againButton = document.querySelector(".again");
@@ -40,6 +41,8 @@ const play = () => {
     jump();
   });
 
+  background.classList.add("slide");
+
   animateBlock();
   runScore();
 };
@@ -76,6 +79,7 @@ const checkLose = setInterval(() => {
 
 const die = () => {
   stopScore();
+  background.classList.remove("slide");
   face.style.display = "none";
   deadface.style.display = "block";
   loserMessage.style.display = "block";
