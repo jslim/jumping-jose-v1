@@ -11,6 +11,7 @@ button {
   height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Helvetica", "Arial", sans-serif;
@@ -29,6 +30,11 @@ button {
   background-color: #722f37;
   position: relative;
   top: 150px;
+}
+
+.score {
+  position: absolute;
+  right: 10%;
 }
 
 .loser-message {

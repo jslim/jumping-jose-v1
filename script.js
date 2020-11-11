@@ -5,6 +5,11 @@ const againButton = document.querySelector(".again");
 const face = document.querySelector(".face");
 const deadface = document.querySelector(".deadface");
 const loserMessage = document.querySelector(".loser-message");
+const scoreDiv = document.querySelector(".points");
+const maxScoreDiv = document.querySelector(".max-points");
+let interval;
+let score = 0;
+let maxScore = 0;
 
 playButton.addEventListener("click", () => {
   playButton.style.display = "none";
@@ -36,6 +41,7 @@ const play = () => {
   });
 
   animateBlock();
+  runScore();
 };
 
 const jump = () => {
@@ -69,6 +75,7 @@ const checkLose = setInterval(() => {
 }, 10);
 
 const die = () => {
+  stopScore();
   face.style.display = "none";
   deadface.style.display = "block";
   loserMessage.style.display = "block";
@@ -80,4 +87,30 @@ const live = () => {
   face.style.display = "block";
   deadface.style.display = "none";
   againButton.style.display = "none";
+};
+
+const runScore = () => {
+  const start = new Date().getTime();
+  score = 0.1;
+  interval = window.setInterval(function () {
+    const time = new Date().getTime() - start;
+
+    score = Math.floor(time / 100) * 10;
+
+    scoreDiv.innerHTML = score;
+  }, 100);
+};
+
+const stopScore = () => {
+  clearInterval(interval);
+  calcuteMaxScore();
+};
+
+const calcuteMaxScore = () => {
+  if (score > maxScore) {
+    maxScore = score;
+    maxScoreDiv.innerHTML = maxScore;
+  }
+
+  score = 0;
 };
